@@ -252,3 +252,14 @@ trade_data_16 = {
     'trade_type': 'SELL'
 }
 requests.post(base_url+'/client/4/trade', json=trade_data_16)
+
+
+'''
+requests.post(base_url+'/client/1/trade', json={
+    'product_id': 7,
+    'units_traded': 2500,
+    'trade_type': 'BUY'
+})
+
+'''
+
