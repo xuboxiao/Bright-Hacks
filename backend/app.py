@@ -24,6 +24,17 @@ def get_client_wallet_data(client_id):
     return add_header(service.ClientWalletService().get_wallet_data(client_id))
 
 
+@app.route('/client/<client_id>/wallet/history')
+def get_wallet_history(client_id):
+    return add_header(service.ClientWalletService().get_history(client_id))
+
+
+@app.route('/daily-update')
+def daily_update():
+    service.ClientWalletService().daily_record_all()
+    return 'Updated: ' + datetime.datetime.now().strftime('%d-%B-%Y %H:%M:%S')
+
+
 @app.route('/rm/<rm_id>/my_clients', methods=['POST', 'GET'])
 def my_clients(rm_id):
     if request.method == 'POST':
@@ -59,12 +70,17 @@ def trade(client_id):
 
 @app.route('/client/<client_id>/daily_record')
 def daily_record(client_id):
-    return add_header(service.ClientWalletService().daily_record(client_id))
+    return add_header(service.ClientWalletService().daily_record_single(client_id))
 
 
 @app.route('/client/<client_id>/holdings')
 def get_holdings(client_id):
     return add_header(service.HoldingsService().get_holdings(client_id))
+
+
+@app.route('/products')
+def get_products():
+    return add_header(service.ProductService().get_products())
 
 
 if __name__ == '__main__':

@@ -16,6 +16,14 @@ class ClientWalletService:
                 ['total_daily_credit_award', 'total_credit']] \
             .to_json()
 
+    def get_history(self, client_id):
+        result = self.model.get_by_client_id(client_id).sort_values(by=['date_updated'], ascending=False).head(10)
+        if len(result['date_updated']) > 0:
+            result['date_updated'] = result['date_updated'].dt.strftime('%d-%B-%Y %H:%M:%S')
+        return result.loc[:, ['date_updated', 'client_name',
+                              'total_daily_credit_award', 'total_credit']] \
+                        .to_json(orient='records')
+
     def daily_record_single(self, client_id):
         holding = self.holding_model.get_by_client_id(client_id)
         total_daily_credit_award = holding['daily_credit_award'].sum()
@@ -29,7 +37,9 @@ class ClientWalletService:
         return result.loc[['total_daily_credit_award', 'total_credit']].to_json()
 
     def daily_record_all(self):
-        pass
+        client_ids = models.ClientModel().list_items().loc[:, 'client_id']
+        for index, client_id in client_ids.iteritems():
+            self.daily_record_single(client_id)
 
 
 class ClientService:
@@ -117,7 +127,8 @@ class TransactionService:
     def get_trade_history(self, client_id):
         result = self.model.get_by_client_id(client_id)[['transaction_id', 'time_stamp',
                                                          'trade_type', 'product_name', 'units_traded']]
-        result['time_stamp'] = result['time_stamp'].dt.strftime('%d-%B-%Y %H:%M:%S')
+        if len(result['time_stamp']) > 0:
+            result['time_stamp'] = result['time_stamp'].dt.strftime('%d-%B-%Y %H:%M:%S')
         return result.to_json(orient='records')
 
 
@@ -128,22 +139,13 @@ class HoldingsService:
     def get_holdings(self, client_id):
         result = self.model.get_by_client_id(client_id)
         return result.loc[:, ['holding_id', 'client_name', 'product_name', 'units_held', 'daily_credit_award']].to_json(orient='records')
-'''
-class ClientWalletService():
-    def __init__(self):
-        self.model = models.ClientWalletModel()
-        self.holding_model = models.HoldingsModel()
 
-    def daily_record(self, client_id):
-        holding = self.holding_model.get_by_client_id(client_id)
-        total_daily_credit_award = holding['daily_credit_award'].sum()
-        latest_record = self.model.get_by_client_id_latest(client_id).loc[0]
-        total_credit = latest_record.loc['total_credit'] + total_daily_credit_award
-        params = {'client_id': client_id,
-                  'date_updated': datetime.datetime.now(),
-                  'total_daily_credit_award': total_daily_credit_award,
-                  'total_credit': total_credit}
-        result = self.model.create(params).loc[0]
-        return result.loc[['total_daily_credit_award', 'total_credit']].to_json()
-'''
+
+class ProductService:
+    def __init__(self):
+        self.model = models.ProductModel()
+
+    def get_products(self):
+        result = self.model.list_items()
+        return result.to_json(orient='records')
 

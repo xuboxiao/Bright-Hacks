@@ -18,6 +18,38 @@ client_data_2 = {
     'pwd': 'yes2'
 }
 
+# rm1
+client_data_3 = {
+    'client_name': 'Berkshire Hathaway Holdings',
+    'industry_id': '1',
+    'pwd': 'yes1'
+}
+
+# rm2
+client_data_4 = {
+    'client_name': 'General Electric',
+    'industry_id': '3',
+    'pwd': 'yes2'
+}
+
+# rm3
+client_data_5 = {
+    'client_name': 'JC Penny',
+    'industry_id': '6',
+    'pwd': 'yes3'
+}
+
+# rm4
+client_data_6 = {
+    'client_name': 'TATA Group',
+    'industry_id': '4',
+    'pwd': 'yes4'
+}
+
+
+
+'''
+
 # RM2 on-boarded client1 Alice
 requests.post(base_url+'/rm/2/my_clients', json=client_data_1)
 
@@ -29,6 +61,12 @@ requests.post(base_url+'/rm/2/my_clients', json=client_data_2)
 requests.get(base_url+'/rm/2/my_clients')
 # response: [{"client_id":1,"client_name":"Alice","industry_name":"Environmental Services and Recycling"},{"client_id":2,"client_name":"Bob","industry_name":"Real Estate"}]
 
+'''
+
+requests.post(base_url+'/rm/1/my_clients', json=client_data_3)
+requests.post(base_url+'/rm/2/my_clients', json=client_data_4)
+requests.post(base_url+'/rm/3/my_clients', json=client_data_5)
+requests.post(base_url+'/rm/4/my_clients', json=client_data_6)
 
 # --------------------------- trade data api -------------------------
 trade_data_1 = {

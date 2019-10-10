@@ -352,15 +352,17 @@ class ProductModel:
 
     def list_items(self, where_clause=''):
         query = """
-        SELECT product_id, product_name, unit_daily_credit_award
+        SELECT 
+        product_id, product_name, unit_daily_credit_award,
+        esg_rating, sharpe_ration
         FROM 
         Product
 
         """ + where_clause + ';'
         self.cur.execute(query)
         return pd.DataFrame(self.cur.fetchall(),
-                            columns=['product_id',
-                                     'product_name', 'unit_daily_credit_award'])
+                            columns=['product_id','product_name', 'unit_daily_credit_award',
+                                     'esg_rating', 'sharpe_ratio'])
 
     def get_by_product_id(self, product_id):
         where_clause = f'WHERE product_id = {product_id}'
