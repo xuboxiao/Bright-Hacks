@@ -25,7 +25,7 @@ export default class App extends React.Component {
        
         <HashRouter>
           <ul className="header">
-          <li><img src="./dbecologo.jpg" padding="10px"  height="80" width="80"/></li>
+          <li><img src="dbecologo1.jpg" padding="10px"  height="80" width="80"/></li>
             <li><NavLink to="/wallet">Wallet</NavLink></li>
             <li><NavLink to="/holdings">Holdings</NavLink></li>
             <li><NavLink to="/transactions">Transactions</NavLink></li>
