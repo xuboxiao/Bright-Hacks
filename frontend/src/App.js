@@ -35,7 +35,7 @@ export default class App extends React.Component {
         
           </ul>
           <div className="content" >
-          < Route path="/" component={Wallet} />
+            <Route exact path="/" component={Wallet} />
             <Route path="/wallet" component={Wallet} />
             <Route path="/holdings" component={Holdings} />
             <Route path="/transactions" component={Transactions} />
