@@ -1,5 +1,4 @@
-TRUNCATE TABLE PRODUCT;
-insert into product (product_id, product_name,unit_daily_credit_award,ESG_Rating,Sharpe_ration,ESG_Rating,Sharpe_ration) values (1,'Tox free solutions',1,'AA',2.0,'AA',2.0);
+insert into product (product_id, product_name,unit_daily_credit_award,ESG_Rating,Sharpe_ration) values (1,'Tox free solutions',1,'AA',2.0);
 
 insert into product (product_id, product_name,unit_daily_credit_award,ESG_Rating,Sharpe_ration) values (2,'SolarCity Corporation',1,'AAA',3.0);
 

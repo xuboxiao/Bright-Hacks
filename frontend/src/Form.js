@@ -50,6 +50,9 @@ class Form extends Component {
 
         return (
             <form onSubmit={this.onFormSubmit}>
+              
+
+
                 <label>Asset</label>
                 <Select options={ techCompanies } name="asset" 
                     toggleItem={this.toggleSelected}/>
@@ -57,15 +60,20 @@ class Form extends Component {
                 <input 
                     type="text" 
                     name="qty" 
+                    class="input"
                     value={qty} 
                     onChange={this.handleChange} />
-                    <label>Price</label>
-                <input 
-                    type="text" 
-                    name="price" 
-                    value={price} 
-                    onChange={this.handleChange} />
-                <button type="submit">
+                   
+
+<label>ESG(MSCI) Rating</label>
+                    
+                    <input 
+                        type="text" 
+                        name="price" 
+                        value={price} 
+                        onChange={this.handleChange} />
+                     
+                <button type="submit" id="formSubmit">
                     Submit
                 </button>
             </form>

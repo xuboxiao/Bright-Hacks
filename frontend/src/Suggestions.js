@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import Table from "./Table"
+import TableSuggestions from "./TableSuggestions"
 
-class Transactions extends Component{
+class Suggestions extends Component{
     state = {
         characters: []
     };
 
       componentDidMount() {
-        const url = "http://backend-server-5.southeastasia.azurecontainer.io:8080/client/1/trade";
+        const url = "http://backend-server-7.southeastasia.azurecontainer.io:8080/products";
 
         fetch(url)
             .then(result => result.json())
@@ -93,9 +93,9 @@ class Transactions extends Component{
     render() {
         return(
             <div className="container">
-                <h2>Transactions Summary</h2>
+                <h2>Product Offerings</h2>
                 <br/>
-                <Table
+                <TableSuggestions
                     characterData={this.state.characters}
                 />
             </div>
@@ -103,4 +103,4 @@ class Transactions extends Component{
     }
 
 }
-export default Transactions;
+export default Suggestions;
