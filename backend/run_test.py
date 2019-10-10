@@ -30,9 +30,11 @@ print(
 )
 '''
 
-print(service.TransactionService().get_trade_history(1))
+# print(service.TransactionService().get_trade_history(1))
 
+# print(models.ClientWalletModel().get_by_client_id_latest(1))
 
+# print(service.ClientWalletService().daily_record(1))
 
 # print(service.TransactionService().is_in_holdings(1, 2))
 
@@ -42,3 +44,4 @@ print(service.TransactionService().get_trade_history(1))
 # print(models.HoldingsModel().get_by_client_id(1).loc[:, 'product_id'])
 
 
+print(service.HoldingsService().get_holdings(2))

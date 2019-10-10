@@ -62,3 +62,6 @@ requests.post(base_url+'/client/1/trade', json=trade_data_2)
 
 # client2 buys 100 shares of product4
 requests.post(base_url+'/client/2/trade', json=trade_data_3)
+
+# client2 buys 100 shares of product1
+requests.post(base_url+'/client/2/trade', json=trade_data_1)

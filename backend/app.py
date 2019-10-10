@@ -52,14 +52,19 @@ def trade(client_id):
         params = request.get_json()
         params['client_id'] = client_id
         params['time_stamp'] = datetime.datetime.now()
-        return service.TransactionService().new_transaction(params)
+        return add_header(service.TransactionService().new_transaction(params))
     elif request.method == 'GET':
-        return service.TransactionService().get_trade_history(client_id)
+        return add_header(service.TransactionService().get_trade_history(client_id))
 
 
 @app.route('/client/<client_id>/daily_record')
 def daily_record(client_id):
-    service.ClientWalletService().daily_record(client_id)
+    return add_header(service.ClientWalletService().daily_record(client_id))
+
+
+@app.route('/client/<client_id>/holdings')
+def get_holdings(client_id):
+    return add_header(service.HoldingsService().get_holdings(client_id))
 
 
 if __name__ == '__main__':
