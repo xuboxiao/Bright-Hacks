@@ -7,7 +7,7 @@ class Transactions extends Component{
     };
 
       componentDidMount() {
-        const url = "http://backend-server-7.southeastasia.azurecontainer.io:8080/client/1/trade";
+        const url = "http://dbeco-backend.southeastasia.azurecontainer.io:8080/client/1/trade";
 
         fetch(url)
             .then(result => result.json())
@@ -18,16 +18,6 @@ class Transactions extends Component{
             });
             debugger
     }
-
-    /*removeCharacter = index => {
-        const { characters } = this.state;
-    
-        this.setState({
-            characters: characters.filter((character, i) => { 
-                return i !== index;
-            })
-        });
-    }*/
 
     handleSubmit = character => {
         this.setState({characters: [...this.state.characters, character]});
