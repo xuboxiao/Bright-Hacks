@@ -17,7 +17,7 @@ class ClientWalletService:
             .to_json()
 
     def get_history(self, client_id):
-        result = self.model.get_by_client_id(client_id).sort_values(by=['date_updated'], ascending=False).head(10)
+        result = self.model.get_by_client_id(client_id).sort_values(by=['date_updated'], ascending=True).head(10)
         if len(result['date_updated']) > 0:
             result['date_updated'] = result['date_updated'].dt.strftime('%d-%B-%Y %H:%M:%S')
         return result.loc[:, ['date_updated', 'client_name',
@@ -129,7 +129,7 @@ class TransactionService:
                                                          'trade_type', 'product_name', 'units_traded']]
         if len(result['time_stamp']) > 0:
             result['time_stamp'] = result['time_stamp'].dt.strftime('%d-%B-%Y %H:%M:%S')
-        return result.to_json(orient='records')
+        return result.sort_values(by=['time_stamp'], ascending=False).to_json(orient='records')
 
 
 class HoldingsService:
