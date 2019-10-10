@@ -29,6 +29,7 @@ class Suggestions extends Component{
         });
     }*/
 
+
     /*render(){
         /*const characters = [
             {

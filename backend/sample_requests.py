@@ -1,6 +1,6 @@
 import requests
 
-host = 'backend-server-8.southeastasia.azurecontainer.io'
+host = 'dbeco-backend.southeastasia.azurecontainer.io'
 port = '8080'
 base_url = 'http://' + host + ':' + port
 
