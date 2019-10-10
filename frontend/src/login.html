@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="styleNew.css" type="text/css">
+  <link rel="stylesheet" href="login.css" type="text/css">
   <title>dbECO App</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -16,12 +16,7 @@
 </head>
 <body id="bodyLogin">
 
-        <div id="containerHeader">
-                <header id="header-background">
-                 
-     </header>
-                </div>
-
+        
                 
 
     <div id="container-fluid">
@@ -32,7 +27,7 @@
     <div class="container">
       <h4 ><img class="float" src="../images/db.png" style="width:60px"  >Deutsche Bank</h4>
   <br>
-  <form action="app.js">
+  <form action="app.js" method="post">
     <div class="form-group">
       <label for="email">Email:</label>
       <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
@@ -45,8 +40,9 @@
     <div class="form-group">
     <label for="userType">Select user</label>
       <select class="form-control" id="userType" name="userType">
+          <option value="client">Client</option>
         <option value="rm">Relationship Manager</option>
-        <option value="client">Client</option>
+        
       </select>
     </div>
   
