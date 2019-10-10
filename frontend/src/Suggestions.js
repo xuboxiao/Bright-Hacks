@@ -78,7 +78,6 @@ class Suggestions extends Component{
     /*render() {
         const { characters } = this.state;
         debugger
-        const result = characters.map((entry, index) => {
             console.log(entry);
             //return <li key={index}>{entry}</li>;
             //return <li key={characters.product_name}</li>;
