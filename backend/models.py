@@ -190,15 +190,39 @@ class ClientWalletModel:
         return self.list_items(where_clause)
 
     def get_by_client_id_latest(self, client_id):
-        query_max_date = f'SELECT ' \
-                            f'MAX(date_updated) ' \
-                            f'FROM ' \
-                            f'Client_Wallet ' \
-                            f'WHERE client_id = {client_id} '
-        self.cur.execute(query)
+        query_max_date = \
+            '''
+            SELECT
+            MAX(date_updated)
+            FROM
+            Client_Wallet
+            WHERE 
+            client_id = %(client_id)s
+            
+            '''
+        self.cur.execute(query_max_date,
+                         {'client_id': client_id})
+        max_date = self.cur.fetchone()[0]
+        query_wallet = \
+            '''
+            SELECT
+            client_wallet_id, date_updated, Client.client_id, client_name,
+            total_daily_credit_award, total_credit, rm_team, Client.rm_id
+            FROM
+            Client_Wallet
+            INNER JOIN Client
+            ON Client_Wallet.client_id = Client.client_id
+            INNER JOIN RM
+            ON RM.rm_id = Client.rm_id
+            WHERE Client.client_id = %(client_id)s
+            AND date_updated = %(date_updated)s
+            
+            '''
+        self.cur.execute(query_wallet,
+                         {'client_id': client_id, 'date_updated': max_date})
         return pd.DataFrame(self.cur.fetchall(),
-                            columns=['client_wallet_id', 'date_updated', 'client_id',
-                                     'total_daily_credit_award', 'total_credit'])
+                            columns=['client_wallet_id', 'date_updated', 'client_id', 'client_name',
+                                     'total_daily_credit_award', 'total_credit', 'rm_team', 'rm_id'])
 
     def get_by_rm_id(self, rm_id):
         query = f'SELECT ' \
