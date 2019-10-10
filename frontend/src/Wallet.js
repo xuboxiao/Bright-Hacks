@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
-
+import {Bar} from 'react-chartjs-2';
 class Wallet extends Component {
+    
+
     state = {
         data: []
     };
+
     
-    componentDidMount() {
-        const url = "https://en.wikipedia.org/w/api.php?action=opensearch&search=Wallet&format=json&origin=*&limit=1";
+
+      componentDidMount() {
+        const url = "http://backend-server-5.southeastasia.azurecontainer.io:8080/client/1/wallet";
 
         fetch(url)
             .then(result => result.json())
@@ -17,15 +21,51 @@ class Wallet extends Component {
             });
     }
 
+      /*render() {
+          let dailyCredit = this.state.data.total_daily_credit_award !=undefined ? this.state.data.total_daily_credit_award : 0 ;
+          let totalCredit = this.state.data.total_credit !=undefined ? this.state.data.total_credit : 0 ; 
+        return <div className="container">
+            <h2>Daily Credit: {dailyCredit}</h2>
+            <h2>Total Credit: {totalCredit}</h2>
+        </div>;
+    }*/
+
     render() {
-        const { data } = this.state;
+          let dailyCredit = this.state.data.total_daily_credit_award !=undefined ? this.state.data.total_daily_credit_award : 0 ;
+          let totalCredit = this.state.data.total_credit !=undefined ? this.state.data.total_credit : 0 ; 
+          
+          const bardata = {
+            labels: ['Daily Credit', 'Total Credit'],
+            datasets: [
+              {
+                label: 'Credits',
+                backgroundColor: 'rgba(255,99,132,0.2)',
+                borderColor: 'rgba(255,99,132,1)',
+                borderWidth: 1,
+                hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+                hoverBorderColor: 'rgba(255,99,132,1)',
+                data: [dailyCredit, totalCredit]
+              }
+            ]
+          };
+          debugger
+        
+        return <div className="container">
+            
+            <div>
+        <h2>My Wallet</h2>
+        <Bar
+          data={bardata}
+          width={10}
+          height={200}
 
-        const result = data.map((entry, index) => {
-            console.log(entry);
-            return <li key={index}>{entry}</li>;
-        });
-
-        return <div className="container"><ul>{result}</ul></div>;
+          options={{
+            maintainAspectRatio: false
+          }}
+        />
+      </div>
+      
+        </div>;
     }
 }
 

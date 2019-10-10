@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Form from "./Form"
+import Form from "./Form";
+import Transaction from "./Transactions";
 
 class Trade extends Component{
     state = {
@@ -18,6 +19,7 @@ class Trade extends Component{
 
     handleSubmit = character => {
         this.setState({characters: [...this.state.characters, character]});
+        this.props.history.push('/transactions');
     }
 
     render(){

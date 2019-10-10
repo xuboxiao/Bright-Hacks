@@ -15,7 +15,10 @@ class Api extends Component {
                     data: result
                 })
             });
+        console.log(data);
     }
+
+    
 
     render() {
         const { data } = this.state;

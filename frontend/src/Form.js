@@ -49,39 +49,25 @@ class Form extends Component {
           ];
 
         return (
-            <form onSubmit={this.onFormSubmit} >
-                <label class="switch">Buy /  
-  <input type="checkbox" checked name="toggleTrade" onChange={this.handleChange}/><span class="slider round"></span>
- 
-
-</label>
+            <form onSubmit={this.onFormSubmit}>
                 <label>Asset</label>
-                <Select options={ techCompanies } name="asset"  class="form-control"
+                <Select options={ techCompanies } name="asset" 
                     toggleItem={this.toggleSelected}/>
                 <label>Quantity</label>
                 <input 
                     type="text" 
                     name="qty" 
-                    class="input"
                     value={qty} 
                     onChange={this.handleChange} />
                     <label>Price</label>
                 <input 
                     type="text" 
                     name="price" 
-                    class="input"
                     value={price} 
                     onChange={this.handleChange} />
-                    <label>ESG(MSCI) Rating</label>
-                    
-                <input 
-                    type="text" 
-                    name="price" 
-                    value={price} 
-                    onChange={this.handleChange} />
-           
-                
-                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="submit">
+                    Submit
+                </button>
             </form>
         );
     }

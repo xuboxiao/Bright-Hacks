@@ -6,7 +6,20 @@ class Transactions extends Component{
         characters: []
     };
 
-    removeCharacter = index => {
+      componentDidMount() {
+        const url = "http://backend-server-5.southeastasia.azurecontainer.io:8080/client/1/trade";
+
+        fetch(url)
+            .then(result => result.json())
+            .then(result => {
+                this.setState({
+                    characters: result
+                })
+            });
+            debugger
+    }
+
+    /*removeCharacter = index => {
         const { characters } = this.state;
     
         this.setState({
@@ -14,56 +27,76 @@ class Transactions extends Component{
                 return i !== index;
             })
         });
-    }
+    }*/
 
     handleSubmit = character => {
         this.setState({characters: [...this.state.characters, character]});
     }
 
-    render(){
-        const characters = [
+    /*render(){
+        /*const characters = [
             {
-                date:'2019-01-20',
               asset: 'Rubber Company',
-              asset_category:'ESG',
-              quantity: '300'
-              
+              quantity: '300',
+              date:'2019-01-20'
             },
             {
-                date:'2019-02-12',
                 asset: 'Solar Company',
-                asset_category:'ESG',
-                quantity: 50
-                
+                quantity: '50',
+                date:'2019-02-12'
             },
             {
-                date:'2019-03-14',
                 asset: 'Oil Company',
-                asset_category:'ESG',
-                quantity: '100'
-               
+                quantity: '100',
+                date:'2019-03-14'
             },
             {
-                date:'2019-04-30',
                 asset: 'Plantation Company',
-                asset_category:'ESG',
-                quantity: '40'
+                quantity: '40',
+                date:'2019-04-30'
             },
             {
-                date:'2019-05-21',
                 asset: 'Mining Company',
-                asset_category:'Neutral',
                 quantity: '120',
-                
+                date:'2019-05-21'
             },
           ]
-        //const { characters } = this.state;
+          
+
+        const characters = characters.map((entry, index) => {
+            return <li key={index}>{entry}</li>;
+        });
+        /*const { characters } = this.state.characters;
         return(
             <div className="container">
-                <h2>Transactions History</h2>
+                <h1>Transactions Summary</h1>
                 <br/>
                 <Table
                     characterData={characters}
+                />
+            </div>
+        );
+    }*/
+
+    /*render() {
+        const { characters } = this.state;
+        debugger
+        const result = characters.map((entry, index) => {
+            console.log(entry);
+            //return <li key={index}>{entry}</li>;
+            //return <li key={characters.product_name}</li>;
+        });
+
+        return <div className="container"><ul>{characters}</ul></div>;
+    }*/
+
+    render() {
+        return(
+            <div className="container">
+                <h1>Transactions Summary</h1>
+                <br/>
+                <Table
+                    characterData={this.state.characters}
                 />
             </div>
         );
