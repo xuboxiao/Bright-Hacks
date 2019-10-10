@@ -49,8 +49,8 @@ class Trade extends Component{
         const { characters } = this.state;
         return(
             <div className="container">
-                <h1>Trade Details</h1>
-                <hr/>
+                <h2>Trade Details</h2>
+               
                 
                 <Form handleSubmit={this.handleSubmit} />
             </div>

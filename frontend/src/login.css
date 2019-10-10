@@ -9,27 +9,14 @@
   text-align: left;
   font-size: 13px;
   font-family: arial, helvetica, sens-serif;
-  color: #000000;
-   background-color: #221a4d;
-   background-image: url(../images/logo.png);
+ 
+   background-image: url(./logo.png);
    background-repeat: repeat-x;
    background-repeat: repeat-y;
    background-size:cover;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  text-align: left;
-  font-size: 13px;
-  font-family: arial, helvetica, sens-serif;
-  color: #000000;
-   background-color: #221a4d;
-   background-image: url(../images/layout.png);
-   background-repeat: repeat-x;
-   background-repeat: repeat-y;
-   background-size:cover;
-}
+
 
 
 
