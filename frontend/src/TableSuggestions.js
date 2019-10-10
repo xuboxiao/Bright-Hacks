@@ -6,8 +6,8 @@ const TableHeader = () => {
             <tr>
                 <th>Product Name</th>
                 <th>ESG Rating</th>
-                <th>Spark Ratio</th>
-                <th colspan="2" text-align="center"> Sell / Buy</th>
+                <th>Sharpe Ratio</th>
+                <th  text-align="center"> Action</th>
             </tr>
         </thead>
     );
@@ -21,8 +21,8 @@ const TableBody = props => {
                  <td>{row.product_name}</td>
                 <td>{row.esg_rating}</td>
                 <td>{row.sharpe_ratio}</td>
-                <td ><input type="button" name="sell" value="Sell"></input></td>
-                <td><input type="button" name="buy" value="Buy"></input></td>
+                <td ><input type="button" name="sell" value="Sell"></input>
+                &nbsp;&nbsp;<input type="button" name="buy" value="Buy"></input></td>
             </tr>
         );
     });
