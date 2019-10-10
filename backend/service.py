@@ -109,12 +109,12 @@ class TransactionService:
         else:
             print('is in holdings')
             old_holding = self.holding_model.get_by_client_product_id(params['client_id'], params['product_id']).loc[0]
-            if params['trade_type'] == 'buy':
+            if params['trade_type'].lower() == 'buy':
                 update_dict = {
                     'units_held': old_holding.loc['units_held'] + params['units_traded'],
                     'daily_credit_award': old_holding.loc['daily_credit_award'] + params['units_traded'] * transaction.loc['unit_daily_credit_award']
                 }
-            elif params['trade_type'] == 'sell':
+            elif params['trade_type'].lower() == 'sell':
                 update_dict = {
                     'units_held': old_holding.loc['units_held'] - params['units_traded'],
                     'daily_credit_award': old_holding.loc['daily_credit_award'] - params['units_traded'] * transaction.loc['unit_daily_credit_award']
