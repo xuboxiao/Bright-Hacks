@@ -23,35 +23,44 @@ class Transactions extends Component{
     render(){
         const characters = [
             {
+                date:'2019-01-20',
               asset: 'Rubber Company',
-              quantity: '300',
-              date:'2019-01-20'
+              asset_category:'ESG',
+              quantity: '300'
+              
             },
             {
+                date:'2019-02-12',
                 asset: 'Solar Company',
-                quantity: '50',
-                date:'2019-02-12'
+                asset_category:'ESG',
+                quantity: 50
+                
             },
             {
+                date:'2019-03-14',
                 asset: 'Oil Company',
-                quantity: '100',
-                date:'2019-03-14'
+                asset_category:'ESG',
+                quantity: '100'
+               
             },
             {
+                date:'2019-04-30',
                 asset: 'Plantation Company',
-                quantity: '40',
-                date:'2019-04-30'
+                asset_category:'ESG',
+                quantity: '40'
             },
             {
+                date:'2019-05-21',
                 asset: 'Mining Company',
+                asset_category:'Neutral',
                 quantity: '120',
-                date:'2019-05-21'
+                
             },
           ]
         //const { characters } = this.state;
         return(
             <div className="container">
-                <h1>Transactions Summary</h1>
+                <h2>Transactions History</h2>
                 <br/>
                 <Table
                     characterData={characters}

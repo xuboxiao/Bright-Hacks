@@ -28,7 +28,7 @@ class Holdings extends Component {
 
         return (
             <div className="container">
-                    <h3 className="mt-5">Holdings Status</h3>
+                    <h3 >Holdings Status</h3>
                     <Doughnut data={this.state.dataDoughnut} options={ { responsive: true }} />
             </div>
         );

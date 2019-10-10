@@ -24,11 +24,13 @@ export default class App extends React.Component {
         
         <HashRouter>
           <ul className="header">
-            <li><img src="./dbecologo.jpg" height="52" width="50"/></li>
+          <li><img src="./dbecologo.jpg" padding="10px"  height="80" width="80"/></li>
             <li><NavLink to="/wallet">Wallet</NavLink></li>
             <li><NavLink to="/holdings">Holdings</NavLink></li>
             <li><NavLink to="/transactions">Transactions</NavLink></li>
             <li><NavLink to="/trade">Trade</NavLink></li>
+           
+            <li><NavLink to="/#">Logout</NavLink></li>
           </ul>
           <div className="content" >
             <Route path="/wallet" component={Wallet} />

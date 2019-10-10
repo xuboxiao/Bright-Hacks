@@ -3,10 +3,12 @@ import React, { Component } from 'react';
 const TableHeader = () => { 
     return (
         <thead>
-            <tr>
+            <tr> 
+                <th>Transaction Date</th>
                 <th>Asset</th>
+                <th>Asset Category</th>
                 <th>Quantity</th>
-                <th>Date</th>
+                
             </tr>
         </thead>
     );
@@ -16,9 +18,11 @@ const TableBody = props => {
     const rows = props.characterData.map((row, index) => {
         return (
             <tr key={index}>
-                <td>{row.asset}</td>
-                <td>{row.quantity}</td>
                 <td>{row.date}</td>
+                <td>{row.asset}</td>
+                <td>{row.asset_category}</td>
+                <td>{row.quantity}</td>
+                
             </tr>
         );
     });
@@ -32,7 +36,7 @@ class Table extends Component {
         const { characterData } = this.props;
 
         return (
-            <table>
+            <table class="table table-striped">
                 <TableHeader />
                 <TableBody characterData={characterData} />
             </table>
