@@ -32,7 +32,7 @@ export default class App extends React.Component {
             <li><NavLink to="/suggestions">Trading Suggestions</NavLink></li>
             <li><NavLink to="/trade">Trade</NavLink></li>
           
-            <li><NavLink to="/#">Logout</NavLink></li>
+        
           </ul>
           <div className="content" >
             <Route path="/wallet" component={Wallet} />
@@ -42,7 +42,6 @@ export default class App extends React.Component {
             <Route path="/suggestions" component={Suggestions} />
           </div>
         </HashRouter>
-        
         <div id="footerContainer"  class="w3-row-padding w3-margin-bottom ">
     <footer class="page-footer  fixed-bottom text-center footerContainer">
     &copy;Deutsche Bank Singapore Hackathon, 2019

@@ -140,11 +140,15 @@ ul.header li a {
   td {
     border-bottom: 1px solid #dedede; }
   
+    
   th,
   td {
-    text-align: left;
+    text-align: center;
     padding: .5rem; }
-  
+  .thclass
+  {
+    text-align: center;
+  }
   caption {
     padding: 1rem 0;
     caption-side: bottom;

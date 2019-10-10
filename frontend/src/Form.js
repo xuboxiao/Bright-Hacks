@@ -70,6 +70,7 @@ class Form extends Component {
                     <input 
                         type="text" 
                         name="price" 
+                        class="input"
                         value={price} 
                         onChange={this.handleChange} />
                      
