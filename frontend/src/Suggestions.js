@@ -7,7 +7,7 @@ class Suggestions extends Component{
     };
 
       componentDidMount() {
-        const url = "http://backend-server-7.southeastasia.azurecontainer.io:8080/products";
+        const url = "http://dbeco-backend.southeastasia.azurecontainer.io:8080/products";
 
         fetch(url)
             .then(result => result.json())
@@ -31,6 +31,7 @@ class Suggestions extends Component{
 
     handleSubmit = character => {
         this.setState({characters: [...this.state.characters, character]});
+        
     }
 
     /*render(){

@@ -16,6 +16,20 @@
    background-size:cover;
 }
 
+bodyLogin {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  font-size: 13px;
+  font-family: arial, helvetica, sens-serif;
+ 
+   background-image: url(./logo.png);
+   background-repeat: repeat-x;
+   background-repeat: repeat-y;
+   background-size:cover;
+}
+
+
 
 
 

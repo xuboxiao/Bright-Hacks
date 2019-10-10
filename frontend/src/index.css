@@ -426,13 +426,29 @@ a.full-button {
   formSubmit
   {
     
-    padding: 1px;
-   
+    padding: 2px;
+   margin-left:10px;
   }
    .input
    {
-    
+     
      background-color:white;
      
    }
+   .custom-select1
+   {size:1px;
+
+   }
    
+   
+.resizeformc {
+  width: 1px;
+  height:1px;
+}
+.form-control {
+  position: absolute;
+  z-index: 2;
+  float: left;
+  width: 20%;
+  margin-bottom: 0;
+}

@@ -49,13 +49,16 @@ class Form extends Component {
           ];
 
         return (
-            <form onSubmit={this.onFormSubmit}>
+            
+            <form  onSubmit={this.onFormSubmit}>
               
 
 
                 <label>Asset</label>
-                <Select options={ techCompanies } name="asset" 
+                
+                <Select  options={ techCompanies } name="asset" id="form-control resizeformc" 
                     toggleItem={this.toggleSelected}/>
+                  
                 <label>Quantity</label>
                 <input 
                     type="text" 
@@ -73,7 +76,7 @@ class Form extends Component {
                         class="input"
                         value={price} 
                         onChange={this.handleChange} />
-                     
+                     <p></p>
                 <button type="submit" id="formSubmit">
                     Submit
                 </button>
