@@ -24,8 +24,8 @@ const TableBody = props => {
                  <td>{row.product_name}</td>
                 <td>{row.esg_rating}</td>
                 <td>{row.sharpe_ratio}</td>
-                <td ><button type="submit" name="sell" value="Sell" >Sell</button> 
-                &nbsp;&nbsp;<button type="submit" name="buy" value="Buy">Buy</button></td>
+                <td ><input type="submit" name="sell" value="Sell" >Sell</input> 
+                &nbsp;&nbsp;<input type="submit" name="buy" value="Buy">Buy</input></td>
             </tr>
         );
     });
