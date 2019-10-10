@@ -10,7 +10,7 @@ class Wallet extends Component {
     totallineGraph:[]
   };
 
-  componentDidMount() {
+  /*componentDidMount() {
     const url2 = "http://dbeco-backend.southeastasia.azurecontainer.io:8080/client/1/wallet/history";
     fetch(url2)
       .then(result2 => result2.json())
@@ -20,8 +20,8 @@ class Wallet extends Component {
         })
       });
       
-  }
-  /*componentDidMount()
+  }*/
+  componentDidMount()
   {
     const url = "http://backend-server-7.southeastasia.azurecontainer.io:8080/client/1/wallet";
     fetch(url)
@@ -31,11 +31,12 @@ class Wallet extends Component {
           data: result
         })
       });
-  }*/
+  }
 
   render() {
+    let totalCredit = this.state.data.total_credit != undefined ? this.state.data.total_credit : 0;
     /*//let dailyCredit = this.state.data.total_daily_credit_award != undefined ? this.state.data.total_daily_credit_award : 0;
-    //let totalCredit = this.state.data.total_credit != undefined ? this.state.data.total_credit : 0;
+    
 
     this.state.line.map((row, index) => {
       this.state.totallineGraph.push(row.total_credit);
@@ -120,6 +121,7 @@ class Wallet extends Component {
       <br/>
       <hr/>
       <br/>
+      <h2>Wallet Balance: {totalCredit}</h2>
     </div>;
   }
 }
