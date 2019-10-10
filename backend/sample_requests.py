@@ -69,18 +69,22 @@ requests.post(base_url+'/rm/3/my_clients', json=client_data_5)
 requests.post(base_url+'/rm/4/my_clients', json=client_data_6)
 
 # --------------------------- trade data api -------------------------
+
+# cl 1
 trade_data_1 = {
     'product_id': 1,
     'units_traded': 100,
     'trade_type': 'buy'
 }
 
+# cl 1
 trade_data_2 = {
     'product_id': 1,
     'units_traded': 100,
     'trade_type': 'sell'
 }
 
+# cl2
 trade_data_3 = {
     'product_id': 4,
     'units_traded': 100,
@@ -103,3 +107,4 @@ requests.post(base_url+'/client/2/trade', json=trade_data_3)
 
 # client2 buys 100 shares of product1
 requests.post(base_url+'/client/2/trade', json=trade_data_1)
+
