@@ -7,7 +7,7 @@ class Transactions extends Component{
     };
 
       componentDidMount() {
-        const url = "http://backend-server-5.southeastasia.azurecontainer.io:8080/client/1/trade";
+        const url = "http://backend-server-7.southeastasia.azurecontainer.io:8080/client/1/trade";
 
         fetch(url)
             .then(result => result.json())

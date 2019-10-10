@@ -31,6 +31,7 @@ class Suggestions extends Component{
 
     handleSubmit = character => {
         this.setState({characters: [...this.state.characters, character]});
+        this.props.history.push('/trade');
     }
 
     /*render(){
